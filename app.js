@@ -1,4 +1,4 @@
-let likes = true;
+let likes = false;
 let comments = false;
 let shares = true;
 
@@ -44,39 +44,26 @@ let promiseThree = new Promise((resolve, reject) => {
   }
 });
 
-Promise.all([promiseOne, promiseTwo, promiseThree])
-  .then((message) => {
-    console.log(message);
-    console.log(message[0].name + " " + message[0].message);
-    console.log(message[1].name + " " + message[1].message);
-    console.log(message[2].name + " " + message[2].message);
-  })
-  .catch((error) => {
-    console.log(error);
-    console.log(error.name + " " + error.message);
-    // console.log(error.name + " " + error.message);
-  });
-
-// promiseOne
-//   .then((message) => {
-//     console.log(message.name + " " + message.message);
-//   })
-//   .catch((error) => {
-//     console.log(error.name + " " + error.message);
-//   });
-
-// promiseTwo
-//   .then((message) => {
-//     console.log(message.name + " " + message.message);
-//   })
-//   .catch((error) => {
-//     console.log(error.name + " " + error.message);
-//   });
-
-// promiseThree
-//   .then((message) => {
-//     console.log(message.name + " " + message.message);
-//   })
-//   .catch((error) => {
-//     console.log(error.name + " " + error.message);
-//   });
+Promise.all([
+  promiseOne
+    .then((message) => {
+      console.log(message.name + " " + message.message);
+    })
+    .catch((error) => {
+      console.log(error.name + " " + error.message);
+    }),
+  promiseTwo
+    .then((message) => {
+      console.log(message.name + " " + message.message);
+    })
+    .catch((error) => {
+      console.log(error.name + " " + error.message);
+    }),
+  promiseThree
+    .then((message) => {
+      console.log(message.name + " " + message.message);
+    })
+    .catch((error) => {
+      console.log(error.name + " " + error.message);
+    }),
+]);
